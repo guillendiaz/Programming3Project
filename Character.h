@@ -1,19 +1,24 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 #include <string>
+#include <sstream>
+#include <iostream>
+#include <vector>
 #include "Coordinate.h"
-
+#include "Weapon.h"
 using namespace std;
 
 
 class Character{
 	protected:
-		int HP, Level, Experience, MaxExperience, Strength, Magic, Skill, Speed, Luck, Defense, Resistance, Movement;
-		string Name, Sprite;
+		int HP, Level, Experience, MaxExperience, Strength, Magic, Skill, Speed, Luck, Defense, Resistance;
+		string Name, Class;
+		Weapon weapon;
+		vector<string> Sprite;
 	public:
 		Character();
 		Character(string);
-		
+
 		void setHP(int);
 		int getHP();
 		void setLevel(int);
@@ -36,12 +41,14 @@ class Character{
 		int getDefense();
 		void setResistance(int);
 		int getResistance();
-		void setMovement(int);
-		int getMovement();
 		void setName(string);
 		string getName();
 		void setSprite(string);
-		string getSprite();
+		vector<string> getSprite();
+		void setWeapon(Weapon);
+		Weapon getWeapon();
+		void setClass(string);
+		string getClass();
 
 		virtual bool Move(Coordinate)=0;
 		virtual int Attack()=0;
@@ -49,8 +56,9 @@ class Character{
 		virtual int AvoidRate()=0;
 		virtual int HitRate()=0;
 		virtual int* ExperienceForm()=0;
+		virtual bool equals(Character*)const;
 		~Character();
-	
+
 };
 
 #endif

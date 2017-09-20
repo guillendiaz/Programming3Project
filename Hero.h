@@ -1,17 +1,17 @@
 #ifndef HERO_H
 #define HERO_H
-#include "Human.h"
+#include "Character.h"
 #include <string>
 
 using namespace std;
 
-class Hero : public Human{
+class Hero : public Character{
 	private:
 
 	public:
 		Hero();
 		Hero(string);
-		
+
 		bool Move(Coordinate);
 		int Attack();
 		int CriticalRate();
@@ -19,7 +19,7 @@ class Hero : public Human{
 		int HitRate();
 		int* ExperienceForm();
 		~Hero();
-	
+
 };
 
 #endif

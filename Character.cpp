@@ -1,7 +1,4 @@
 #include "Character.h"
-#include <string>
-
-using namespace std;
 
 Character::Character(){
 
@@ -9,6 +6,7 @@ Character::Character(){
 
 Character::Character(string pName){
 	this->Name = pName;
+
 }
 
 void Character::setHP(int pHP){
@@ -99,14 +97,6 @@ int  Character::getResistance(){
 	return Resistance;
 }
 
-void Character::setMovement(int pMovement){
-	this->Movement = pMovement;
-}
-
-int  Character::getMovement(){
-	return Movement;
-}
-
 void Character::setName(string pName){
 	this->Name = pName;
 }
@@ -116,12 +106,29 @@ string Character::getName(){
 }
 
 void Character::setSprite(string pSprite){
-	this->Sprite = pSprite;
+	this->Sprite.push_back(pSprite);
 }
 
-string Character::getSprite(){
+vector<string> Character::getSprite(){
 	return Sprite;
 }
+
+void Character::setWeapon(Weapon pWeapon){
+	this->weapon = pWeapon;
+}
+
+Weapon Character::getWeapon(){
+	return weapon;
+}
+
+void Character::setClass(string pClass){
+	this->Class = pClass;
+}
+
+string Character::getClass(){
+	return Class;
+}
+
 
 bool Character::Move(Coordinate){
 
@@ -146,6 +153,11 @@ int  Character::HitRate(){
 int* Character::ExperienceForm(){
 
 }
+
+bool Character::equals(Character* other)const{
+		return other == this;
+}
+
 
 Character::~Character(){
 
